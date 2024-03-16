@@ -1,7 +1,6 @@
 # How to contribute to The Maze
-- Follow a Git workflow of fork -> clone -> branch -> pr -> merge
+- Follow a Git workflow of branch -> pr -> merge
 - If you're new to Git look [here](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
-
 ## general
 - Keep file and folder names in `snake_case` (godot 4 standard)
 
