@@ -9,6 +9,7 @@
 - Make sure your godot code follows the [GDQuest Style Guide](https://gdquest.gitbook.io/gdquests-guidelines/godot-gdscript-guidelines), use the [gdscript-toolkit-linter](https://github.com/Scony/godot-gdscript-toolkit) to automatically format your code.
 - Use [Static Typing](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/static_typing.html) for variables and functions.
 - put scenes and their scripts in the same directory
+- name variables and functions in snake_case, scene instances in code should be in camelCase
 - Name scenes after the root node.
 - Name scripts the same name as the node they attach to
 - Label custom data structures with Class names for type hint support
