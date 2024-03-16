@@ -1,5 +1,6 @@
 # How to contribute to The Maze
 - Follow a Git workflow of branch -> pr -> merge
+- we're all working based off of the ``bootstrap`` branch, NOT the ``main`` branch
 - If you're new to Git look [here](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
 
 ## general
