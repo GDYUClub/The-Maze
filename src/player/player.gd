@@ -1,3 +1,4 @@
+class_name player
 extends Area2D
 
 @onready var raycast := $RayCast2D
@@ -30,6 +31,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
+	if event.is_action_pressed('inspect'):
+		_inspect()
+
 
 
 func _move(_input_dir:Vector2) -> void:
@@ -42,3 +46,18 @@ func _move(_input_dir:Vector2) -> void:
 		print(next_tile)
 	else:
 		position += _input_dir * TILE_SIZE
+
+
+func _inspect() -> void:
+	raycast.force_raycast_update()
+	var inspect_tile: Object = raycast.get_collider()
+	if inspect_tile == null:
+		print('wow nothing!')
+		return
+	if inspect_tile.is_in_group('chest'):
+		inspect_tile._on_inspection()
+		#chest event
+		pass
+
+
+	pass
