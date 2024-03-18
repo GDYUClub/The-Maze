@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv5xm6ru2dkxf"]
+[gd_scene load_steps=8 format=3 uid="uid://cv5xm6ru2dkxf"]
 
+[ext_resource type="Script" path="res://src/main/main.gd" id="1_8hq0w"]
 [ext_resource type="Texture2D" uid="uid://b3w5cmqr6fbcw" path="res://assets/monochrome-transparent_packed.png" id="1_kghfi"]
 [ext_resource type="PackedScene" uid="uid://bp6oyjqvoyffq" path="res://src/player/player.tscn" id="2_ekt33"]
 [ext_resource type="PackedScene" uid="uid://cojb8qcua33fo" path="res://src/scene-tiles/chest/chest.tscn" id="2_win2x"]
+[ext_resource type="Script" path="res://src/main/ui.gd" id="4_o4xue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ari5a"]
 texture = ExtResource("1_kghfi")
@@ -3251,16 +3253,42 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ari5a")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_8hq0w")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="player" parent="." instance=ExtResource("2_ekt33")]
+position = Vector2(80, 48)
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map"]
 tile_set = SubResource("TileSet_0u0tf")
 format = 2
 layer_0/name = "walls"
 layer_0/tile_data = PackedInt32Array(0, 1179649, 0, 1, 1245185, 0, 2, 1245185, 0, 3, 1245185, 0, 4, 1245185, 0, 5, 1245185, 0, 6, 1245185, 0, 7, 1245185, 0, 8, 1245185, 0, 9, 1245185, 0, 10, 1245185, 0, 65536, 1179649, 1, 131072, 1179649, 1, 196608, 1179649, 1, 262144, 1179649, 1, 327680, 1179649, 1, 393216, 1179649, 1, 458752, 1179649, 1, 524288, 1179649, 2, 11, 1245185, 0, 12, 1245185, 0, 13, 1245185, 0, 14, 1245185, 0, 15, 1310721, 0, 65551, 1310721, 1, 131087, 1310721, 1, 196623, 1310721, 1, 262159, 1310721, 1, 327695, 1310721, 1, 393231, 1310721, 1, 458767, 1310721, 1, 524303, 1310721, 2, 524289, 1245185, 2, 524290, 1245185, 2, 524291, 1245185, 2, 524292, 1245185, 2, 524293, 1245185, 2, 524294, 1245185, 2, 524295, 1245185, 2, 524296, 1245185, 2, 524297, 1245185, 2, 524298, 1245185, 2, 524299, 1245185, 2, 524300, 1245185, 2, 524301, 1245185, 2, 524302, 1245185, 2)
 layer_1/tile_data = PackedInt32Array()
 
-[node name="chest" parent="." instance=ExtResource("2_win2x")]
+[node name="chest" parent="Map" instance=ExtResource("2_win2x")]
 position = Vector2(112, 48)
 
-[node name="player" parent="." instance=ExtResource("2_ekt33")]
-position = Vector2(80, 48)
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 144.0
+script = ExtResource("4_o4xue")
+
+[node name="Textbox" type="Panel" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 240.0
+offset_bottom = 128.0
+
+[node name="Text" type="Label" parent="UI/Textbox"]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 10
+text = "I told you to not let Jayden make the ui bruh!!!"
+autowrap_mode = 2
