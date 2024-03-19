@@ -5,7 +5,7 @@ var opened:bool = false
 @onready var sprite = $Sprite2D
 
 #bad solution but not a bad solution YET
-@onready var ui:UI = get_parent().get_parent().get_node('UI')
+@onready var ui:UI = get_parent().get_parent().get_parent().get_node('UI')
 
 func _init() -> void:
 	add_to_group('interact')
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _on_inspection() -> void:
 	if !opened:
-		ui.render_text('I warned you about jayden making ui!!!')
+		ui.render_text(['I warned you about jayden making ui!!!','now it is in an array','songboots would be nice'])
 		$Sprite2D.frame = 1
 
 

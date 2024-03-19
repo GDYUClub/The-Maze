@@ -1,9 +1,10 @@
-class_name player
+class_name Player
 extends Area2D
 
 @onready var raycast := $RayCast2D
 
 const TILE_SIZE := 16
+var is_actionable:= true
 
 func _init() -> void:
 	add_to_group("player")
@@ -25,7 +26,10 @@ func get_input_vector(event: InputEvent) -> Vector2:
 	return dir
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
+	# don't do anything if you aren't allowed to
+	if !is_actionable:
+		return
 	var _input_dir := get_input_vector(event)
 	#check what group the next tile is in based on your raycast
 	if _input_dir != Vector2.ZERO:
@@ -56,7 +60,6 @@ func _inspect() -> void:
 		return
 	if inspect_tile.is_in_group('chest'):
 		inspect_tile._on_inspection()
-		#chest event
 		pass
 
 
