@@ -2,6 +2,7 @@ class_name UI
 extends Control
 
 @onready var textbox:Panel = $Textbox
+@onready var bootIcon:Sprite2D =$HUD/BootIcon
 signal text_rendered
 signal text_removed
 signal text_advanced
@@ -10,6 +11,7 @@ signal text_advanced
 func render_text(new_text_arr) -> void:
 	#loop through the array and display the lines of text
 	text_rendered.emit()
+	bootIcon.visible = true
 	textbox.visible = true
 	var textLabel = $Textbox/Text
 	#i = 0

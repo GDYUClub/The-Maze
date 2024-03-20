@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmdlpc0uddsm2"]
+
+[ext_resource type="Texture2D" uid="uid://b3w5cmqr6fbcw" path="res://assets/monochrome-transparent_packed.png" id="1_cirol"]
+[ext_resource type="Script" path="res://src/scene-tiles/stairs/stairs.gd" id="1_ww3tu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrfj"]
+size = Vector2(16, 16)
+
+[node name="stairs" type="Area2D"]
+script = ExtResource("1_ww3tu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8vrfj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cirol")
+region_enabled = true
+region_rect = Rect2(48, 96, 16, 16)

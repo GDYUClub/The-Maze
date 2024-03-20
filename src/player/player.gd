@@ -3,6 +3,8 @@ extends Area2D
 
 @onready var raycast := $RayCast2D
 
+signal walked_into_stairs
+
 const TILE_SIZE := 16
 var is_actionable:= true
 
@@ -11,6 +13,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	raycast.collide_with_areas = true
+
 
 func get_input_vector(event: InputEvent) -> Vector2:
 	# make vector representing player input
@@ -39,7 +42,6 @@ func _input(event: InputEvent) -> void:
 		_inspect()
 
 
-
 func _move(_input_dir:Vector2) -> void:
 	raycast.target_position = _input_dir * TILE_SIZE
 	# clear old raycast collison then get new one
@@ -48,8 +50,11 @@ func _move(_input_dir:Vector2) -> void:
 
 	if next_tile != null:
 		print(next_tile)
-	else:
+
+	if next_tile == null:
 		position += _input_dir * TILE_SIZE
+	elif next_tile.is_in_group('stairs'):
+		walked_into_stairs.emit()
 
 
 func _inspect() -> void:

@@ -16,7 +16,8 @@ func _ready() -> void:
 
 func _on_inspection() -> void:
 	if !opened:
-		ui.render_text(['I warned you about jayden making ui!!!','now it is in an array','songboots would be nice'])
+		opened = true
+		ui.render_text(['The chest contained boots.',"They fit you perfectly.",'The chest also contained a note:','"SOMEONE ADD SONGBOOT NOISES ALREADY!!!"',"You don't think the note was addressing you."])
 		$Sprite2D.frame = 1
 
 
