@@ -1,10 +1,15 @@
 class_name Player
 extends Area2D
 
+@onready var boots_packed_scene: PackedScene = preload("res://src/boots/boots.tscn")
 @onready var raycast := $RayCast2D
+
+signal made_successful_move(successful_input_dir)
 
 const TILE_SIZE := 16
 var is_actionable:= true
+
+var has_boots := false
 
 func _init() -> void:
 	add_to_group("player")
@@ -48,8 +53,14 @@ func _move(_input_dir:Vector2) -> void:
 
 	if next_tile != null:
 		print(next_tile)
+		if !has_boots and next_tile.is_in_group('chest'):
+			var new_obtained_boots = boots_packed_scene.instantiate()
+			self.add_child(new_obtained_boots)
+			has_boots = true
+			pass
 	else:
 		position += _input_dir * TILE_SIZE
+		emit_signal("made_successful_move", _input_dir)
 
 
 func _inspect() -> void:
