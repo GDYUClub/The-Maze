@@ -34,5 +34,5 @@ layout_mode = 0
 offset_right = 224.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 10
-text = "Get the boots and run to the right till you can't stop!!!"
+text = "Get the boots and run down till you can't stop!!!"
 autowrap_mode = 2

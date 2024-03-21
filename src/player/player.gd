@@ -52,15 +52,18 @@ func _move(_input_dir:Vector2) -> void:
 	var next_tile: Object = raycast.get_collider()
 
 	if next_tile != null:
-		print(next_tile)
-		if !has_boots and next_tile.is_in_group('chest'):
+		interact_with_tile(next_tile)
+	else:
+		position += _input_dir * TILE_SIZE
+		made_successful_move.emit(_input_dir)
+
+func interact_with_tile(tile: Object) -> void:
+	if !has_boots and tile.is_in_group('chest'):
 			var new_obtained_boots = boots_packed_scene.instantiate()
 			self.add_child(new_obtained_boots)
 			has_boots = true
 			pass
-	else:
-		position += _input_dir * TILE_SIZE
-		made_successful_move.emit(_input_dir)
+	pass
 
 
 func _inspect() -> void:

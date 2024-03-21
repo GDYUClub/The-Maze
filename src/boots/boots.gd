@@ -14,7 +14,7 @@ func connect_to_player() -> void:
 	var parent_player_node = get_node("../")
 	# Yeah!! You can get stuff 2 parents up the tree get_node("../../")
 	if parent_player_node != self:
-		parent_player_node.made_successful_move.connect(Callable(self, "new_move_made"))
+		parent_player_node.made_successful_move.connect(new_move_made)
 	pass
 
 func new_move_made(dir: Vector2) -> void:
