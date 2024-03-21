@@ -17,8 +17,8 @@ func connect_to_player() -> void:
 		parent_player_node.made_successful_move.connect(Callable(self, "new_move_made"))
 	pass
 
-func new_move_made(what_direction) -> void:
-	match what_direction:
+func new_move_made(dir: Vector2) -> void:
+	match dir:
 		Vector2(0,1):
 			note_new_move("down")
 			pass
