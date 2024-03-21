@@ -60,7 +60,7 @@ func _move(_input_dir:Vector2) -> void:
 			pass
 	else:
 		position += _input_dir * TILE_SIZE
-		emit_signal("made_successful_move", _input_dir)
+		made_successful_move.emit(_input_dir)
 
 
 func _inspect() -> void:
