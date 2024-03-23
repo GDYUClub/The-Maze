@@ -11,10 +11,8 @@ func _ready() -> void:
 	connect_to_player()
 
 func connect_to_player() -> void:
-	var player := get_node("../")
-	# Yeah!! You can get stuff 2 parents up the tree get_node("../../")
-	if player != self:
-		player.moved.connect(player_moved)
+	var player := get_parent()
+	player.moved.connect(player_moved)
 
 func player_moved(dir: Vector2) -> void:
 	match dir:
@@ -30,12 +28,13 @@ func player_moved(dir: Vector2) -> void:
 		Vector2(-1,0):
 			push_move("left")
 			pass
-	has_player_won()
 
-func push_move(what_direction_string: String) -> void:
-	recent_moves.pop_front()
-	recent_moves.append(what_direction_string)
-
-func has_player_won() -> void:
 	if recent_moves == move_code:
+		code_entered()
+
+func push_move(dir_string: String) -> void:
+	recent_moves.pop_front()
+	recent_moves.append(dir_string)
+
+func code_entered():
 		print("yayay!! You won!")
