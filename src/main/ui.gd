@@ -14,12 +14,11 @@ func render_text(new_text_arr) -> void:
 	bootIcon.visible = true
 	textbox.visible = true
 	var textLabel = $Textbox/Text
-	#i = 0
-	#while i < new_text_arr.length():
+
 	for line in new_text_arr:
 		textLabel.text = line
 		await text_advanced
-	#await text_advanced
+
 	textbox.visible = false
 	text_removed.emit()
 

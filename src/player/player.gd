@@ -5,7 +5,7 @@ extends Area2D
 @onready var raycast := $RayCast2D
 
 signal walked_into_stairs
-signal made_successful_move(successful_input_dir)
+signal moved(dir)
 
 const TILE_SIZE := 16
 var is_actionable:= true
@@ -42,8 +42,8 @@ func _input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
-	if event.is_action_pressed('inspect'):
-		_inspect()
+	if event.is_action_pressed('interact'):
+		_interact()
 
 
 func _move(_input_dir:Vector2) -> void:
@@ -52,13 +52,9 @@ func _move(_input_dir:Vector2) -> void:
 	raycast.force_raycast_update()
 	var next_tile: Object = raycast.get_collider()
 
-	#if next_tile != null:
-		#print(next_tile)
-	# if it's a tile you can interact with you can't walk on it
-	# maybe we could use class names or something that dosen't require making new labels for everything (not an issue rn)
-	if next_tile == null or !next_tile.is_in_group('interact'):
+	if next_tile == null or next_tile.is_in_group('walkable'):
 		position += _input_dir * TILE_SIZE
-		made_successful_move.emit(_input_dir)
+		moved.emit(_input_dir)
 		check_next_tile(next_tile)
 
 func check_next_tile(tile: Object) -> void:
@@ -67,22 +63,12 @@ func check_next_tile(tile: Object) -> void:
 	if tile.is_in_group('stairs'):
 		walked_into_stairs.emit()
 
-func _inspect() -> void:
+func _interact() -> void:
 	raycast.force_raycast_update()
-	var inspect_tile: Object = raycast.get_collider()
-	if inspect_tile == null:
+	var interact_tile: Object = raycast.get_collider()
+	if interact_tile == null:
 		print('wow nothing!')
 		return
-	if inspect_tile.is_in_group('chest'):
-		inspect_tile._on_inspection()
-		#very very very bad fix asap
-		# pass in player into inspection function or something
-		if !has_boots:
-			print('boots')
-			var new_obtained_boots = boots_packed_scene.instantiate()
-			self.add_child(new_obtained_boots)
-			has_boots = true
-			pass
+	if interact_tile.is_in_group('interact'):
+		interact_tile._on_interaction(self)
 
-
-	pass

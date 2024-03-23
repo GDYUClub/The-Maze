@@ -1,13 +1,12 @@
 class_name Map
 extends Node2D
 
+# we need to add a collision shape to the tilemap for the player raycast to be able to detect it, otherwise it'll be considered null.
+
 @onready var tilemap:TileMap = $TileMap
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tilemap.add_to_group('wall')
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
