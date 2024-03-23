@@ -36,8 +36,6 @@ func swap_map() -> void:
     player.position = playerSpawnMarker.position
 
 
-
-
 func _start_cutscene() -> void:
     in_cutscene = true
     player.is_actionable = false
