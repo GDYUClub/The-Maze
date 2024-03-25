@@ -25,7 +25,14 @@ func _on_interaction(player:Player) -> void:
 			player.add_child(boots)
 			player.has_boots = true
 
-		ui.render_text(['The chest contained boots.',"They fit you perfectly.",'The chest also contained a note:','"SOMEONE ADD SONGBOOT NOISES ALREADY!!!"',"You don't think the note was addressing you."])
-		$Sprite2D.frame = 1
+			ui.render_text(['The chest contained boots.',"They fit you perfectly.",'The chest also contained a note:','"SOMEONE ADD SONGBOOT NOISES ALREADY!!!"',"You don't think the note was addressing you."])
+			$Sprite2D.frame = 1
+		
+		# added a cheeky placeholder if statement for when the player is already wearing boots and opens a new chest
+		# did it for shits and giggles
+		elif player.has_boots:
+			print('boots again?')
+		
+			ui.render_text(['The chest contained the same boots.', "The ones you're already wearing.", 'You don\'t need them right now.'])
 
 
