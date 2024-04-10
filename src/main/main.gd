@@ -7,6 +7,11 @@ extends Node2D
 var in_cutscene := false
 
 var maps:Array = [preload('res://src/maps/map-1.tscn'),preload('res://src/maps/map-2.tscn'),preload('res://src/maps/map-3.tscn')]
+var map_room_id_dict: Dictionary = { #Not perfect but works for time constraint
+	1 : preload('res://src/maps/map-1.tscn'),
+	2: preload('res://src/maps/map-2.tscn'),
+	3: preload('res://src/maps/map-3.tscn')
+}
 var shuffled_maps:Array = []
 
 var current_map_id
@@ -14,7 +19,20 @@ var current_map_id
 func _ready() -> void:
 	ui.text_rendered.connect(_start_cutscene)
 	ui.text_removed.connect(_end_cutscene)
-	player.walked_into_stairs.connect(swap_map)
+	player.walked_into_stairs.connect(next_map)
+	pass
+
+func next_map(given_room_id: int) -> void:
+	var next_map_id :int = given_room_id
+	var nextMap:Node2D = map_room_id_dict[next_map_id].instantiate()
+	#load new map
+	current_map.queue_free()
+	add_child(nextMap)
+	current_map = nextMap
+
+	#move the player to the spawn point
+	var playerSpawnMarker:Marker2D = nextMap.get_node('PlayerSpawn')
+	player.position = playerSpawnMarker.position
 	pass
 
 func swap_map() -> void:
