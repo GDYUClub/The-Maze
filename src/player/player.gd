@@ -4,7 +4,7 @@ extends Area2D
 @onready var boots_packed_scene: PackedScene = preload("res://src/boots/boots.tscn")
 @onready var raycast := $RayCast2D
 
-signal walked_into_stairs
+signal walked_into_stairs(toward_which_room_id)
 signal moved(dir)
 
 const TILE_SIZE := 16
@@ -61,7 +61,7 @@ func check_next_tile(tile: Object) -> void:
 	if tile == null:
 		return
 	if tile.is_in_group('stairs'):
-		walked_into_stairs.emit()
+		walked_into_stairs.emit(tile.toward_room_id)
 
 func _interact() -> void:
 	raycast.force_raycast_update()
