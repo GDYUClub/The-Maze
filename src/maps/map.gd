@@ -3,6 +3,7 @@ extends Node2D
 
 # we need to add a collision shape to the tilemap for the player raycast to be able to detect it, otherwise it'll be considered null.
 
+
 @onready var tilemap:TileMap = $TileMap
 func _ready() -> void:
 	tilemap.add_to_group('wall')
