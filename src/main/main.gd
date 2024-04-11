@@ -12,6 +12,7 @@ var map_room_id_dict: Dictionary = { #Not perfect but works for time constraint
 	2: preload('res://src/maps/map-2.tscn'),
 	3: preload('res://src/maps/map-3.tscn')
 }
+
 var shuffled_maps:Array = []
 
 var current_map_id

@@ -33,16 +33,13 @@ func get_input_vector(event: InputEvent) -> Vector2:
 	return dir
 
 
-func _input(event: InputEvent) -> void:
-	# don't do anything if you aren't allowed to
-	if !is_actionable:
-		return
+func _unhandled_input(event: InputEvent) -> void:
 	var _input_dir := get_input_vector(event)
 	#check what group the next tile is in based on your raycast
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
-	if event.is_action_pressed('interact'):
+	if event.is_action_pressed('ui_accept'):
 		_interact()
 
 
@@ -72,3 +69,7 @@ func _interact() -> void:
 	if interact_tile.is_in_group('interact'):
 		interact_tile._on_interaction(self)
 
+func give_boots():
+	var boots = boots_packed_scene.instantiate()
+	add_child(boots)
+	has_boots = true
