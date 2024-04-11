@@ -4,7 +4,7 @@ extends Area2D
 @onready var boots_packed_scene: PackedScene = preload("res://src/boots/boots.tscn")
 @onready var raycast := $RayCast2D
 
-signal walked_into_stairs
+signal walked_into_stairs(toward_which_room_id)
 signal moved(dir)
 
 const TILE_SIZE := 16
@@ -33,16 +33,13 @@ func get_input_vector(event: InputEvent) -> Vector2:
 	return dir
 
 
-func _input(event: InputEvent) -> void:
-	# don't do anything if you aren't allowed to
-	if !is_actionable:
-		return
+func _unhandled_input(event: InputEvent) -> void:
 	var _input_dir := get_input_vector(event)
 	#check what group the next tile is in based on your raycast
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
-	if event.is_action_pressed('interact'):
+	if event.is_action_pressed('ui_accept'):
 		_interact()
 
 
@@ -61,7 +58,7 @@ func check_next_tile(tile: Object) -> void:
 	if tile == null:
 		return
 	if tile.is_in_group('stairs'):
-		walked_into_stairs.emit()
+		walked_into_stairs.emit(tile.toward_room_id)
 
 func _interact() -> void:
 	raycast.force_raycast_update()
@@ -72,3 +69,7 @@ func _interact() -> void:
 	if interact_tile.is_in_group('interact'):
 		interact_tile._on_interaction(self)
 
+func give_boots():
+	var boots = boots_packed_scene.instantiate()
+	add_child(boots)
+	has_boots = true
