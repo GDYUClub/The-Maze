@@ -2,7 +2,7 @@
 
 if PlayerState.has_boots() == false
 	The chest contained boots.
-	do PlayerState.give_boots()
+	do PlayerState._give_boots()
 	They fit you perfectly. (did you see the change in the ui!?!?)
 	An air of unease overwhelms you.
 	Something is wrong...

@@ -7,7 +7,7 @@ func has_boots():
     var player:Player = current_scene.get_node("Player")
     return player.has_boots
 
-func give_boots():
+func _give_boots():
     var current_scene = _get_current_scene()
     var player:Player = current_scene.get_node("Player")
     player.give_boots()
