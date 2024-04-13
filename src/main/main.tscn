@@ -90,3 +90,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "B00"
+
+[node name="Player2" parent="." instance=ExtResource("2_ekt33")]
+position = Vector2(130, 47)
