@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c5ru2507ecm8f"]
+
+[ext_resource type="Script" path="res://src/items/item.gd" id="1_b1mog"]
+
+[resource]
+script = ExtResource("1_b1mog")
+id = 0
+ui_name = ""
+description = ""

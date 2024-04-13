@@ -5,6 +5,9 @@ signal inspected
 @export var dialog_resource: DialogueResource
 @export var dialog_start: String = "start"
 
+# Should this go into a singleton?
+const dialogBox = preload("res://assets/dialogue_boxes/balloon.tscn")
+
 var opened:bool = false
 @onready var sprite = $Sprite2D
 
@@ -27,7 +30,9 @@ func _on_interaction(player:Player) -> void:
 		return
 
 	opened = true
-	DialogueManager.show_example_dialogue_balloon(load("res://src/dialogue/main.dialogue"),"start")
+	var balloon: Node = dialogBox.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(dialog_resource,dialog_start)
 	$Sprite2D.frame = 1
 
 

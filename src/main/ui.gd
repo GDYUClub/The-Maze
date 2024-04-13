@@ -22,7 +22,7 @@ func render_text(new_text_arr) -> void:
 	textbox.visible = false
 	text_removed.emit()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("adv_text"):
-		text_advanced.emit()
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("adv_text"):
+		#text_advanced.emit()
 
