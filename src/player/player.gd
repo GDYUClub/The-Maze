@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
-	if event.is_action_pressed('ui_accept'):
+	if event.is_action_pressed('interact'):
 		_interact()
 
 
