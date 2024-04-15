@@ -15,3 +15,11 @@
 - maybe the db could act as a master reference, the resource could act as instances?
 ### item db
 - items are all in a big list, give them though id
+
+
+# todo:
+- clean up commit tree
+- get player (or inventory) ref inside of the item_db class (pull from top down ig)
+- add values to player inventory array (should it be a dict?)
+- render items to the game when the menu loads
+- update currently equipped one
