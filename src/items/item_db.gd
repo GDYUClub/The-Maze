@@ -8,13 +8,15 @@ const ITEMS = {
         "id_name":"test_item",
         "title": "Test Item",
         "icon":"x.png",
-        "description":"You shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden."
+        "description":"You shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden.",
+        "unique":true,
     },
     1:{
         "name":"test_item1",
         "title": "Another Test Item",
         "icon":"x.png",
-        "description":"You (also) shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden."
+        "description":"You (also) shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden.",
+        "unique":true,
     }
 }
 
