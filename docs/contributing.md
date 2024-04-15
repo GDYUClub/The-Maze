@@ -6,7 +6,7 @@
 - Keep file and folder names in `snake_case` (godot 4 standard)
 
 ## code
-- Make sure your godot code follows the [GDQuest Style Guide](https://gdquest.gitbook.io/gdquests-guidelines/godot-gdscript-guidelines)
+- Make sure your godot code follows the [GDQuest Style Guide](https://gdquest.gitbook.io/gdquests-guidelines/godot-gdscript-guidelines), use the [gdscript-toolkit-linter](https://github.com/Scony/godot-gdscript-toolkit) to automatically format your code.
 - Use [Static Typing](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/static_typing.html) for variables and functions.
 - put scenes and their scripts in the same directory
 - Name scenes after the root node.
