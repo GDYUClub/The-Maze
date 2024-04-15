@@ -10,6 +10,8 @@ signal moved(dir)
 const TILE_SIZE := 16
 var is_actionable:= true
 
+var inventory := []
+
 var has_boots := false
 
 func _init() -> void:
@@ -68,6 +70,7 @@ func _interact() -> void:
 		return
 	if interact_tile.is_in_group('interact'):
 		interact_tile._on_interaction(self)
+
 
 func give_boots():
 	var boots = boots_packed_scene.instantiate()
