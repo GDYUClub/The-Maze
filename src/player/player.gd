@@ -75,4 +75,6 @@ func _interact() -> void:
 func give_boots():
 	var boots = boots_packed_scene.instantiate()
 	add_child(boots)
+
 	has_boots = true
+
