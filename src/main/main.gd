@@ -18,8 +18,8 @@ var shuffled_maps:Array = []
 var current_map_id
 
 func _ready() -> void:
-	ui.text_rendered.connect(_start_cutscene)
-	ui.text_removed.connect(_end_cutscene)
+	#ui.text_rendered.connect(_start_cutscene)
+	#ui.text_removed.connect(_end_cutscene)
 	player.walked_into_stairs.connect(next_map)
 	pass
 
