@@ -1,8 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 .vscode/settings.json
-<<<<<<< HEAD
 # don't keep the addons in the repo
 addons/
-=======
->>>>>>> a56df15 (Update .gitignore)
