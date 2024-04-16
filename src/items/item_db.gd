@@ -1,4 +1,6 @@
-extends Resource
+
+extends Node
+
 
 #currently auto-loaded, although I think we could get away with it being a static script, as it dosen't have any instanced values we need to maintain,
 
