@@ -26,8 +26,8 @@ func _on_interaction(player:Player) -> void:
 		# we need 404.dialog lol
 		return
 
-	if opened:
-		return
+	#if opened:
+		#return
 
 	opened = true
 	var balloon: Node = dialogBox.instantiate()

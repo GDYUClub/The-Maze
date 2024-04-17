@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var ui:UI = $UI
+@onready var menuLayer = $MenuLayer
 @onready var player:Player = $Player
 @onready var current_map:Node2D = $Map
-
 var in_cutscene := false
 
 var maps:Array = [preload('res://src/maps/map-1.tscn'),preload('res://src/maps/map-2.tscn'),preload('res://src/maps/map-3.tscn')]
@@ -54,12 +54,17 @@ func swap_map() -> void:
 	var playerSpawnMarker:Marker2D = nextMap.get_node('PlayerSpawn')
 	player.position = playerSpawnMarker.position
 
+func _toggle_menu(inventory) -> void:
+	menuLayer.visible = true
+	menuLayer._load_items(inventory)
+	pass
 
-func _start_cutscene() -> void:
-	in_cutscene = true
-	player.is_actionable = false
+#unused, will remove later
+#func _start_cutscene() -> void:
+	#in_cutscene = true
+	#player.is_actionable = false
 
-func _end_cutscene() -> void:
-	in_cutscene = false
-	await get_tree().create_timer(0.01).timeout # 10ms buffer hack to prevent input collision from text advancing and player input, could also solve by checking UI input in player _input event?
-	player.is_actionable = true
+#func _end_cutscene() -> void:
+	#in_cutscene = false
+	#await get_tree().create_timer(0.01).timeout # 10ms buffer hack to prevent input collision from text advancing and player input, could also solve by checking UI input in player _input event?
+	#player.is_actionable = true

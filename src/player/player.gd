@@ -41,9 +41,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
+
 	if event.is_action_pressed('interact'):
 		_interact()
 
+	if event.is_action_pressed('menu'):
+		# don't try this at home
+		get_parent()._toggle_menu(inventory)
 
 func _move(_input_dir:Vector2) -> void:
 	raycast.target_position = _input_dir * TILE_SIZE
