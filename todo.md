@@ -18,5 +18,8 @@
 
 
 # todo:
+- use grid nodes
+- change db to use names instead of numbers
 - render items to the game when the menu loads
+- fix input issues with canvas layer
 - update currently equipped one

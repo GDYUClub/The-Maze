@@ -26,27 +26,31 @@ func get_input_vector(event: InputEvent) -> Vector2:
 		dir.x -= 1
 	if event.is_action_pressed("ui_right"):
 		dir.x += 1
+	print(dir)
 	return dir
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if visible:
+		get_viewport().set_input_as_handled()
 	var _input_dir := get_input_vector(event)
-	#check what group the next tile is in based on your raycast
 	if _input_dir != Vector2.ZERO:
 		return
 	_move_cursor(_input_dir)
 
 func _move_cursor(input_dir) -> void:
+	prints(input_dir,item_cursor_col,item_cursor_row,itemCursor.position)
 	# move based on the row and column (see that's why I did that!!!)
 	# mod to wrap around values
 	if abs(input_dir.x) > 0:
-		item_cursor_col = (item_cursor_col + (1 * input_dir.x)) % COLS
+		#item_cursor_col = (item_cursor_col + (1 * input_dir.x)) % COLS
+		item_cursor_col = item_cursor_col + (1 * input_dir.x)
 	elif abs(input_dir.y) > 0:
-		item_cursor_row = (item_cursor_row + (1 * input_dir.y)) % ROWS
-
+		#item_cursor_row = (item_cursor_row + (1 * input_dir.y)) % ROWS
+		item_cursor_row = item_cursor_row + (1 * input_dir.y)
+	print(item_cursor_col,item_cursor_row)
 	itemCursor.position.x = item_cursor_col * 32
 	itemCursor.position.y = item_cursor_row * 32
-	prints(input_dir,item_cursor_col,item_cursor_row,itemCursor.position)
 
 
 

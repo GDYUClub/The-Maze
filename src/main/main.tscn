@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv5xm6ru2dkxf"]
+[gd_scene load_steps=11 format=3 uid="uid://cv5xm6ru2dkxf"]
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_8hq0w"]
 [ext_resource type="Texture2D" uid="uid://b3w5cmqr6fbcw" path="res://assets/monochrome-transparent_packed.png" id="1_kghfi"]
@@ -9,8 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ddjw625xpmwtc" path="res://assets/Not Jam UI Condensed 16.ttf" id="6_sa7lc"]
 [ext_resource type="Texture2D" uid="uid://c7retsmbiaoy4" path="res://assets/equipped-icon.png" id="8_h4ayj"]
 [ext_resource type="Theme" uid="uid://eyq5i2mlpkwn" path="res://assets/ui_themes/new_theme.tres" id="8_xwmxw"]
-[ext_resource type="Script" path="res://src/main/menu_layer.gd" id="10_4w87j"]
-[ext_resource type="Texture2D" uid="uid://bbi13ou2tmyip" path="res://assets/menu_arrow.png" id="11_3qv77"]
+[ext_resource type="PackedScene" uid="uid://cx216evccp36t" path="res://src/menu/menu_layer.tscn" id="10_ynrm5"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8hq0w")
@@ -87,36 +86,4 @@ theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "B00"
 
-[node name="MenuLayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("10_4w87j")
-
-[node name="Menu" type="Control" parent="MenuLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 17.0
-offset_right = 256.0
-offset_bottom = 144.0
-
-[node name="Panel" type="Panel" parent="MenuLayer/Menu"]
-layout_mode = 0
-offset_right = 256.0
-offset_bottom = 127.0
-theme = ExtResource("8_xwmxw")
-
-[node name="ItemSlots" type="Control" parent="MenuLayer/Menu/Panel"]
-anchors_preset = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 128.0
-offset_bottom = 124.0
-
-[node name="ItemCursor" type="Sprite2D" parent="MenuLayer/Menu/Panel/ItemSlots"]
-texture = ExtResource("11_3qv77")
-
-[node name="Panel2" type="Panel" parent="MenuLayer/Menu"]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 256.0
-offset_bottom = 127.0
-theme = ExtResource("8_xwmxw")
+[node name="MenuLayer" parent="." instance=ExtResource("10_ynrm5")]
