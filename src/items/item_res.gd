@@ -2,7 +2,7 @@ class_name Item
 extends Resource
 
 var icon:Texture
-var id_name:String
+var id:String
 var title:String
 var description:String
 var in_inventory = false

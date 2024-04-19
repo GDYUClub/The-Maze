@@ -1,13 +1,8 @@
 ~ start
 
-if PlayerState.has_boots() == false
-	The chest contained boots.
-	do PlayerState._give_boots()
+#if PlayerState.has_boots() == false
+boots?
+do PlayerState._give_boots()
+#else:
 
-	They fit you perfectly. (currently no UI change)
-
-	An air of unease overwhelms you.
-	Something is wrong...
-else:
-	You already took the boots. Nothing has been added in between then and now.
 => END
