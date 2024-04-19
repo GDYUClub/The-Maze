@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx216evccp36t"]
+[gd_scene load_steps=4 format=3 uid="uid://cx216evccp36t"]
 
 [ext_resource type="Script" path="res://src/main/menu_layer.gd" id="1_1jpgf"]
 [ext_resource type="Theme" uid="uid://eyq5i2mlpkwn" path="res://assets/ui_themes/new_theme.tres" id="2_aexfy"]
 [ext_resource type="Texture2D" uid="uid://d22wn20kyg23l" path="res://assets/item_cursor.png" id="3_8ywvp"]
-[ext_resource type="Texture2D" uid="uid://bk51v1m1wfhex" path="res://assets/item_icons/x.png" id="4_m23xu"]
 
 [node name="MenuLayer" type="CanvasLayer"]
 layer = 2
@@ -39,11 +38,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="Menu/TextPanel/MarginContainer"]
+[node name="ItemLabel" type="Label" parent="Menu/TextPanel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "An important wedding gift."
-autowrap_mode = 1
+text = "Same thing happend to my buddy eric."
+autowrap_mode = 2
 
 [node name="ItemPanel" type="Panel" parent="Menu"]
 layout_mode = 1
@@ -56,11 +55,10 @@ grow_vertical = 2
 theme = ExtResource("2_aexfy")
 
 [node name="ItemCursor" type="TextureRect" parent="Menu/ItemPanel"]
+unique_name_in_owner = true
 layout_mode = 2
-offset_left = 14.0
-offset_top = 14.0
-offset_right = 34.0
-offset_bottom = 34.0
+offset_right = 16.0
+offset_bottom = 16.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("3_8ywvp")
@@ -79,47 +77,8 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="ItemGrid" type="GridContainer" parent="Menu/ItemPanel/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 5
-
-[node name="TextureRect" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect2" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect3" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect4" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect5" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect6" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect7" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect8" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect9" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")
-
-[node name="TextureRect10" type="TextureRect" parent="Menu/ItemPanel/MarginContainer/ItemGrid"]
-layout_mode = 2
-texture = ExtResource("4_m23xu")

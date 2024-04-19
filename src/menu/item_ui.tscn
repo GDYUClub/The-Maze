@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhi5ko8td6k8x"]
+
+[ext_resource type="Texture2D" uid="uid://bk51v1m1wfhex" path="res://assets/item_icons/x.png" id="1_poc1b"]
+[ext_resource type="Script" path="res://src/menu/item_ui.gd" id="2_02iya"]
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_poc1b")
+script = ExtResource("2_02iya")

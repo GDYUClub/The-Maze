@@ -82,3 +82,6 @@ func give_boots():
 
 	has_boots = true
 
+# we'd need to filter the array for id's, later problem
+#func has_item(id:String) -> bool:
+	#return inventory.has()

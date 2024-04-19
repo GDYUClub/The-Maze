@@ -1,18 +1,19 @@
 extends CanvasLayer
 class_name Menu
 
-@onready var itemSlots:Control = $Menu/Panel/ItemSlots
-@onready var itemPanel:Panel = $Menu/Panel
-@onready var itemCursor:Sprite2D = $Menu/Panel/ItemSlots/ItemCursor
-var item_cursor_row := 0
-var item_cursor_col := 0
-var player_inventory :Array = []
+@onready var itemGrid:GridContainer = %ItemGrid
+@onready var itemCursor:TextureRect = %ItemCursor
+var cursor_pos:= Vector2i(0,0)
 
-const ROWS = 4
-const COLS = 4
+var item_icon_scene:PackedScene = preload("res://src/menu/item_ui.tscn")
+
+var player_inventory :Array = []
+# y = rows x = columns
+var item_grid_bounds:= Vector2i(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	pass # Replace with function body.
 
 
@@ -26,7 +27,6 @@ func get_input_vector(event: InputEvent) -> Vector2:
 		dir.x -= 1
 	if event.is_action_pressed("ui_right"):
 		dir.x += 1
-	print(dir)
 	return dir
 
 
@@ -39,48 +39,36 @@ func _unhandled_input(event: InputEvent) -> void:
 	_move_cursor(_input_dir)
 
 func _move_cursor(input_dir) -> void:
-	prints(input_dir,item_cursor_col,item_cursor_row,itemCursor.position)
-	# move based on the row and column (see that's why I did that!!!)
-	# mod to wrap around values
+	print(input_dir)
+	#cursor is 16 + 16 * pos
+	#offset is pos - 1 * 8
 	if abs(input_dir.x) > 0:
-		#item_cursor_col = (item_cursor_col + (1 * input_dir.x)) % COLS
-		item_cursor_col = item_cursor_col + (1 * input_dir.x)
-	elif abs(input_dir.y) > 0:
-		#item_cursor_row = (item_cursor_row + (1 * input_dir.y)) % ROWS
-		item_cursor_row = item_cursor_row + (1 * input_dir.y)
-	print(item_cursor_col,item_cursor_row)
-	itemCursor.position.x = item_cursor_col * 32
-	itemCursor.position.y = item_cursor_row * 32
+		cursor_pos.x = wrapi(cursor_pos.x + input_dir.x,0,item_grid_bounds.x)
+	if abs(input_dir.y) > 0:
+		cursor_pos.y = wrapi(cursor_pos.y + input_dir.y,0,item_grid_bounds.y)
+	print("new cursor pos:", cursor_pos)
+
+
+	pass
 
 
 
 func _load_items(new_inventory:Array) -> void:
 	player_inventory = new_inventory
-	prints("itempalenasd",itemPanel.global_position)
-	# make sprite 2ds, pass in the texture
-	# put them on the grid
-	var item_sprites :Array[Sprite2D] = []
-	var margin_x = 8
-	var margin_y = 8
-
 	for item in player_inventory:
-		print(item)
-		var new_sprite := Sprite2D.new()
-		new_sprite.texture = item.icon
-		item_sprites.append(new_sprite)
-	print("item sprites: " ,item_sprites.size())
+		var new_item_icon := item_icon_scene.instantiate()
+		# we just store the id of the item in the icon, not the entire resource
+		new_item_icon.id = item.id
+		itemGrid.add_child(new_item_icon)
+	item_grid_bounds.x = itemGrid.columns
+	# math to find row count based on number of children
+	item_grid_bounds.y = ceili(float(itemGrid.get_child_count())/float(itemGrid.columns))
+	print(item_grid_bounds)
 
-	for row in ROWS:
-		for col in COLS:
-			if item_sprites.size() > 0:
-				var item_sprite = item_sprites.pop_front()
-				print(item_sprite)
-				itemPanel.add_child(item_sprite)
-				item_sprite.position.x = (32 * col) + 16
-				item_sprite.position.y = (20 * row) + 16
 
-	#put it at the rightmost value to start
-	itemCursor.position = Vector2(16,16)
+
+
+
 
 
 

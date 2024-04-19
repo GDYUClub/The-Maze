@@ -87,3 +87,4 @@ theme_override_font_sizes/font_size = 16
 text = "B00"
 
 [node name="MenuLayer" parent="." instance=ExtResource("10_ynrm5")]
+visible = false
