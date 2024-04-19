@@ -12,6 +12,7 @@ func _give_boots():
 	var current_scene = _get_current_scene()
 	var player:Player = current_scene.get_node("Player")
 	ItemDb.give_item("test0")
+	ItemDb.give_item("test1")
 
 	#var ui = current_scene.get_node("UI")
 	#ui.bootIcon.visible = true

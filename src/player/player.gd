@@ -14,6 +14,8 @@ var inventory := []
 
 var has_boots := false
 
+var equipped_item:Item
+
 func _init() -> void:
 	add_to_group("player")
 

@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var ui:UI = $UI
 @onready var menuLayer = $MenuLayer
 @onready var player:Player = $Player
 @onready var current_map:Node2D = $Map

@@ -5,15 +5,15 @@ extends Node
 
 const ITEMS = {
     "test0":{
-        "title": "Test Item",
-        "icon":"x.png",
-        "description":"You shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden.",
+        "title": "TEST ITEM",
+        "icon":"sword.png",
+        "description":"You shouldn't have this item.",
         "unique":true,
     },
     "test1":{
-        "title":"Another Test Item",
-        "icon":"x.png",
-        "description":"You (also) shouldn't have this item. If you do, Jayden made a mistake. Yes, there are other devs on this project, but blame all errors on Jayden.",
+        "title":"TEST ITEM 2",
+        "icon":"pendant.png",
+        "description":"You (also) shouldn't have this item.",
         "unique":true,
     }
 }
