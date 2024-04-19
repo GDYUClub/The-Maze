@@ -2,7 +2,7 @@
 
 #if PlayerState.has_boots() == false
 boots?
-do PlayerState._give_boots()
+do PlayerState._give_item("test0")
 #else:
 
 => END
