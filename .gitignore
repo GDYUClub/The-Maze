@@ -3,3 +3,6 @@
 .vscode/settings.json
 # don't keep the addons in the repo
 addons/
+
+.obsidian/
+

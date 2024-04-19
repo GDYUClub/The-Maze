@@ -14,6 +14,8 @@ var inventory := []
 
 var has_boots := false
 
+var equipped_item:Item
+
 func _init() -> void:
 	add_to_group("player")
 
@@ -41,9 +43,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
+
 	if event.is_action_pressed('interact'):
 		_interact()
 
+	if event.is_action_pressed('menu'):
+		# don't try this at home
+		get_parent()._toggle_menu(inventory)
 
 func _move(_input_dir:Vector2) -> void:
 	raycast.target_position = _input_dir * TILE_SIZE
@@ -78,3 +84,6 @@ func give_boots():
 
 	has_boots = true
 
+# we'd need to filter the array for id's, later problem
+#func has_item(id:String) -> bool:
+	#return inventory.has()

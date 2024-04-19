@@ -18,8 +18,8 @@
 
 
 # todo:
-- clean up commit tree
-- get player (or inventory) ref inside of the item_db class (pull from top down ig)
-- add values to player inventory array (should it be a dict?)
+- use grid nodes
+- change db to use names instead of numbers
 - render items to the game when the menu loads
+- fix input issues with canvas layer
 - update currently equipped one
