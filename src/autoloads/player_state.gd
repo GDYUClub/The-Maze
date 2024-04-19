@@ -1,21 +1,19 @@
 extends Node
 
-# these are functions that can be called in the dialog system
-# should probably re-name to something more descriptive
+# these are functions that are meant to be called in the dialog system
+# should probably re-name this script to something more descriptive
 
-func has_boots():
-	var current_scene = _get_current_scene()
-	var player:Player = current_scene.get_node("Player")
-	return player.has_boots
 
-func _give_boots():
-	var current_scene = _get_current_scene()
-	var player:Player = current_scene.get_node("Player")
-	ItemDb.give_item("test0")
-	ItemDb.give_item("test1")
+func _give_item(id:String):
+	ItemDb.give_item(id)
 
 	#var ui = current_scene.get_node("UI")
 	#ui.bootIcon.visible = true
+
+func _has_item(item_id) -> bool:
+	var current_scene = _get_current_scene()
+	var player:Player = current_scene.get_node("Player")
+	return player.has_item(item_id)
 
 
 
