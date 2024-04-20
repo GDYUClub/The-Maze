@@ -43,7 +43,26 @@ Connect disparate information and piece together not only the secrets of this ma
 ## Lore, Story, and Context
 ### Questions that need to be answered:
 - The Maze itself: who what where when why how
+- Why did the game release 40 years later after it was left unfinished?
 - who is the player, what is their goal
 - who are the NPCs, what are their goals
 - why boots, why sounds
 - The golden piece, How should the game end?
+
+### SkullDev
+* A programmer who has developed the maze 20 years ago, in 2025. 
+* They were ultimately unsatisfied with their work and never finished their game
+
+### The Maze
+* The Maze is a VR computer game that releases in 2045, it was uploaded to the web anonymously and credits SkullDev as a contributor.
+* The game comes with the following instructions, "find the golden piece, discover the truth"
+* The game has been constantly updating since its release, but know one knows whos updating it
+* Whoever, or whatever the developer of the maze is, leaves crypic notes and lore about the maze in their game. 
+
+### The Player
+* Since the maze is a publicly released VR computer program, the player is implied to be just a user who stumbles upon it and plays it. 
+* They play the game in 2050
+
+#### Ideas for Messages
+* The mysterious author laves cryptic information throughout the game through some of the npc dialogue. When a dialogue is associated with the author, it is written in a specific font color or style.
+* The author is obsessed with the philosophy of what a maze and puzzle represents to the human psyche. 
