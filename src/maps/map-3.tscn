@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bapnj7ekqfb0t"]
+[gd_scene load_steps=4 format=3 uid="uid://cwxdotd7hh5tb"]
 
 [ext_resource type="Script" path="res://src/maps/map.gd" id="1_kwl2f"]
 [ext_resource type="TileSet" uid="uid://dmwbt07hsdtyl" path="res://src/resources/map_tileset.tres" id="1_xfyi1"]
@@ -15,7 +15,12 @@ layer_0/tile_data = PackedInt32Array(0, 1179649, 0, 1, 1245185, 0, 2, 1245185, 0
 layer_1/tile_data = PackedInt32Array(196615, 3, 65536, 393226, 3, 131072)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(144, 48)
+position = Vector2(80, 64)
 
 [node name="stairs" parent="." instance=ExtResource("3_vucpd")]
-position = Vector2(192, 80)
+position = Vector2(160, 96)
+toward_room_id = 1
+
+[node name="stairs2" parent="." instance=ExtResource("3_vucpd")]
+position = Vector2(192, 48)
+toward_room_id = 6
