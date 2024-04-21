@@ -43,7 +43,10 @@ func on_teleport_entered() -> void:
 
 	if potential_tile != null:
 			print("can't teleport")
+<<<<<<< HEAD
 			return
+=======
+>>>>>>> 4d938ce (Teleportation And Preparing for next levels)
 
 	# go to new map
 	current_map.queue_free()
