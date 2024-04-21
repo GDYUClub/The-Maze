@@ -4,15 +4,3 @@
 
 [node name="Boots" type="Node2D"]
 script = ExtResource("1_1p87s")
-
-[node name="UpSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, -99)
-
-[node name="DownSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, 99)
-
-[node name="LeftSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-99, 0)
-
-[node name="RightSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(99, 0)
