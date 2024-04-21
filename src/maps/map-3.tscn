@@ -19,8 +19,8 @@ position = Vector2(80, 64)
 
 [node name="stairs" parent="." instance=ExtResource("3_vucpd")]
 position = Vector2(160, 96)
-toward_room_id = 1
+toward_room_id = 4
 
 [node name="stairs2" parent="." instance=ExtResource("3_vucpd")]
 position = Vector2(192, 48)
-toward_room_id = 6
+toward_room_id = 77
