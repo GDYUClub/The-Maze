@@ -19,3 +19,7 @@ position = Vector2(80, 48)
 
 [node name="stairs" parent="." instance=ExtResource("3_8x2ye")]
 position = Vector2(160, 96)
+<<<<<<< HEAD
+=======
+toward_room_id = 2
+>>>>>>> 19a3cf7 (Map puzzles Now in!)
