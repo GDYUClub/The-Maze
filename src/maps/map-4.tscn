@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://22clf0thbdqv"]
+
+[ext_resource type="Script" path="res://src/maps/map.gd" id="1_qwjcs"]
+[ext_resource type="TileSet" uid="uid://dmwbt07hsdtyl" path="res://src/resources/map_tileset.tres" id="2_1bcx7"]
+[ext_resource type="PackedScene" uid="uid://cmdlpc0uddsm2" path="res://src/scene-tiles/stairs/stairs.tscn" id="3_w7jut"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_qwjcs")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_1bcx7")
+format = 2
+layer_0/name = "walls"
+layer_0/tile_data = PackedInt32Array(0, 1179649, 0, 1, 1245185, 0, 2, 1245185, 0, 3, 1245185, 0, 4, 1245185, 0, 5, 1245185, 0, 6, 1245185, 0, 7, 1245185, 0, 8, 1245185, 0, 9, 1245185, 0, 10, 1245185, 0, 65536, 1179649, 1, 131072, 1179649, 1, 196608, 1179649, 1, 262144, 1179649, 1, 327680, 1179649, 1, 393216, 1179649, 1, 458752, 1179649, 1, 524288, 1179649, 2, 11, 1245185, 0, 12, 1245185, 0, 13, 1245185, 0, 14, 1245185, 0, 15, 1310721, 0, 65551, 1310721, 1, 131087, 1310721, 1, 196623, 1310721, 1, 262159, 1310721, 1, 327695, 1310721, 1, 393231, 1310721, 1, 458767, 1310721, 1, 524303, 1310721, 2, 524289, 1245185, 2, 524290, 1245185, 2, 524291, 1245185, 2, 524292, 1245185, 2, 524293, 1245185, 2, 524294, 1245185, 2, 524295, 1245185, 2, 524296, 1245185, 2, 524297, 1245185, 2, 524298, 1245185, 2, 524299, 1245185, 2, 524300, 1245185, 2, 524301, 1245185, 2, 524302, 1245185, 2, 458766, 262145, 18, 393230, 262145, 18, 327694, 262145, 18, 262158, 262145, 18, 196622, 262145, 18, 131086, 262145, 18, 65550, 262145, 18, 65537, 262145, 18, 131073, 262145, 18, 196609, 262145, 18, 262145, 262145, 18, 327681, 262145, 18, 393217, 262145, 18, 458753, 262145, 18)
+layer_1/tile_data = PackedInt32Array(196615, 3, 65536, 393226, 3, 131072)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(80, 48)
+
+[node name="stairs" parent="." instance=ExtResource("3_w7jut")]
+position = Vector2(192, 64)
+toward_room_id = 5
