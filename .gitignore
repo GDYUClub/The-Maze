@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 .vscode/settings.json
+# don't keep the addons in the repo
+
+addons/
+
+.obsidian/
+

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhhcjxrvxxawg"]
+
+[ext_resource type="Script" path="res://src/maps/map.gd" id="1_f3vvj"]
+[ext_resource type="TileSet" uid="uid://dmwbt07hsdtyl" path="res://src/resources/map_tileset.tres" id="2_l7q50"]
+[ext_resource type="PackedScene" uid="uid://cmdlpc0uddsm2" path="res://src/scene-tiles/stairs/stairs.tscn" id="3_les7w"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_f3vvj")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_l7q50")
+format = 2
+layer_0/name = "walls"
+layer_1/tile_data = PackedInt32Array(196615, 3, 65536, 393226, 3, 131072)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(80, 64)
+
+[node name="stairs" parent="." instance=ExtResource("3_les7w")]
+position = Vector2(192, 64)
+toward_room_id = 1

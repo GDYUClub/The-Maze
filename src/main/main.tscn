@@ -1,92 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv5xm6ru2dkxf"]
+[gd_scene load_steps=10 format=3 uid="uid://cv5xm6ru2dkxf"]
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_8hq0w"]
-[ext_resource type="Texture2D" uid="uid://b3w5cmqr6fbcw" path="res://assets/monochrome-transparent_packed.png" id="1_kghfi"]
 [ext_resource type="PackedScene" uid="uid://bp6oyjqvoyffq" path="res://src/player/player.tscn" id="2_ekt33"]
 [ext_resource type="PackedScene" uid="uid://deqm4to4ptnq0" path="res://src/maps/map-1.tscn" id="3_w444g"]
-[ext_resource type="Script" path="res://src/main/ui.gd" id="4_o4xue"]
 [ext_resource type="Texture2D" uid="uid://5kstmna3yb6t" path="res://assets/white.png" id="6_8laen"]
+[ext_resource type="Texture2D" uid="uid://x2oes4p8o3os" path="res://assets/item_icons/boots.png" id="6_qs3pd"]
 [ext_resource type="FontFile" uid="uid://ddjw625xpmwtc" path="res://assets/Not Jam UI Condensed 16.ttf" id="6_sa7lc"]
+[ext_resource type="Texture2D" uid="uid://c7retsmbiaoy4" path="res://assets/equipped-icon.png" id="8_h4ayj"]
+[ext_resource type="Theme" uid="uid://eyq5i2mlpkwn" path="res://assets/ui_themes/new_theme.tres" id="8_xwmxw"]
+[ext_resource type="PackedScene" uid="uid://cx216evccp36t" path="res://src/menu/menu_layer.tscn" id="10_ynrm5"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8hq0w")
+metadata/_edit_vertical_guides_ = [128.0]
 
 [node name="Player" parent="." instance=ExtResource("2_ekt33")]
 position = Vector2(80, 48)
 
 [node name="Map" parent="." instance=ExtResource("3_w444g")]
 
-[node name="UI" type="Control" parent="."]
-top_level = true
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 256.0
-offset_bottom = 144.0
-script = ExtResource("4_o4xue")
-
-[node name="Textbox" type="Panel" parent="UI"]
-visible = false
-layout_mode = 0
-offset_left = 16.0
-offset_top = 96.0
-offset_right = 240.0
-offset_bottom = 128.0
-
-[node name="Text" type="Label" parent="UI/Textbox"]
-layout_mode = 0
-offset_right = 224.0
-offset_bottom = 32.0
-theme_override_fonts/font = ExtResource("6_sa7lc")
-theme_override_font_sizes/font_size = 16
-text = "I told you to not let Jayden make the ui bruh!!!"
-autowrap_mode = 2
-
-[node name="HUD" type="Control" parent="UI"]
 anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 16.0
 
-[node name="Bar" type="TextureRect" parent="UI/HUD"]
+[node name="Bar" type="TextureRect" parent="HUD"]
 layout_mode = 2
-offset_right = 256.0
+offset_left = 1.0
+offset_right = 257.0
 offset_bottom = 17.0
 texture = ExtResource("6_8laen")
 
-[node name="BootIcon" type="Sprite2D" parent="UI/HUD"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(160, 0)
-texture = ExtResource("1_kghfi")
-centered = false
-region_enabled = true
-region_rect = Rect2(640, 16, 16, 16)
+[node name="EquippedWrapper" type="TextureRect" parent="HUD"]
+modulate = Color(0.301961, 0.301961, 0.301961, 1)
+layout_mode = 0
+offset_left = 144.0
+offset_right = 144.0
+texture = ExtResource("8_h4ayj")
 
-[node name="HPLabel" type="Label" parent="UI/HUD"]
+[node name="EquippedItem" type="TextureRect" parent="HUD"]
+modulate = Color(0.301961, 0.301961, 0.301961, 1)
+layout_mode = 0
+offset_left = 160.0
+offset_right = 176.0
+offset_bottom = 16.0
+texture = ExtResource("6_qs3pd")
+
+[node name="HPLabel" type="Label" parent="HUD"]
 layout_mode = 2
 offset_left = 16.0
 offset_right = 54.0
 offset_bottom = 16.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("8_xwmxw")
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
 theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "HP: 3/3"
 
-[node name="HPLabel2" type="Label" parent="UI/HUD"]
+[node name="Gold Label" type="Label" parent="HUD"]
 layout_mode = 2
 offset_left = 192.0
 offset_right = 206.0
 offset_bottom = 16.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
 theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "0g"
 
-[node name="HPLabel3" type="Label" parent="UI/HUD"]
+[node name="FloorLabel" type="Label" parent="HUD"]
 layout_mode = 2
 offset_left = 224.0
-offset_right = 262.0
+offset_right = 257.0
 offset_bottom = 16.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("8_xwmxw")
+theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
 theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "B00"
+
+[node name="MenuLayer" parent="." instance=ExtResource("10_ynrm5")]
+visible = false

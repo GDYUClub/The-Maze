@@ -10,7 +10,11 @@ signal moved(dir)
 const TILE_SIZE := 16
 var is_actionable:= true
 
+var inventory := []
+
 var has_boots := false
+
+var equipped_item:Item
 
 func _init() -> void:
 	add_to_group("player")
@@ -39,9 +43,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _input_dir != Vector2.ZERO:
 		_move(_input_dir)
 		return
-	if event.is_action_pressed('ui_accept'):
+
+	if event.is_action_pressed('interact'):
 		_interact()
 
+	if event.is_action_pressed('menu'):
+		# don't try this at home
+		get_parent()._toggle_menu(inventory)
 
 func _move(_input_dir:Vector2) -> void:
 	raycast.target_position = _input_dir * TILE_SIZE
@@ -69,7 +77,19 @@ func _interact() -> void:
 	if interact_tile.is_in_group('interact'):
 		interact_tile._on_interaction(self)
 
+
 func give_boots():
 	var boots = boots_packed_scene.instantiate()
 	add_child(boots)
+
 	has_boots = true
+
+func has_item(id:String) -> bool:
+	for item in inventory:
+		if item.id == id:
+			return true
+	return false
+
+func has_item_equipped(id:String) -> bool:
+	return equipped_item.id == id
+
