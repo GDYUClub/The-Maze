@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var toward_room_id: int = 0
+@export var next_room_id: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

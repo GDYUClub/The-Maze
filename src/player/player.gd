@@ -66,7 +66,7 @@ func check_next_tile(tile: Object) -> void:
 	if tile == null:
 		return
 	if tile.is_in_group('stairs'):
-		walked_into_stairs.emit(tile.toward_room_id)
+		walked_into_stairs.emit(tile.next_room_id)
 
 func _interact() -> void:
 	raycast.force_raycast_update()

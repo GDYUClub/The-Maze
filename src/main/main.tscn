@@ -20,6 +20,7 @@ position = Vector2(80, 48)
 [node name="Map" parent="." instance=ExtResource("3_w444g")]
 
 [node name="HUD" type="Control" parent="."]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0

@@ -32,7 +32,7 @@ func give_item(id:String) -> void:
     var player:Player = current_scene.get_node("Player")
     #if player.has_item(new_item) == false or new_item["unique"] == false:
     player.inventory.append(new_item)
-    print('player now has item: ', new_item)
+    print('player now has item: ', new_item.title)
 
 
 func _get_current_scene():

@@ -21,7 +21,6 @@ position = Vector2(80, 48)
 
 [node name="stairs" parent="." instance=ExtResource("3_8x2ye")]
 position = Vector2(160, 96)
-toward_room_id = 2
 
 [node name="Chest" parent="." instance=ExtResource("4_hq2kf")]
 position = Vector2(112, 64)

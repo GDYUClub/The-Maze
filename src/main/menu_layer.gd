@@ -18,11 +18,12 @@ var player_inventory :Array = []
 var item_grid_bounds:= Vector2i(0,0)
 
 func equip_item():
+	if itemGrid.get_child_count() == 0:
+		return
 	var current_item_index = cursor_pos.x + (cursor_pos.y * item_grid_bounds.x)
-	print("pulled child: ",current_item_index)
 	var current_item = itemGrid.get_child(current_item_index)
 	player.equipped_item = current_item
-	equippedIcon.texture = load("res://assets/item_icons/" +ItemDb.ITEMS[current_item.id]['icon'])
+	equippedIcon.texture = load("res://assets/item_icons/%s" % ItemDb.ITEMS[current_item.id]['icon'])
 
 
 func get_input_vector(event: InputEvent) -> Vector2:
@@ -78,23 +79,17 @@ func _load_items(new_inventory:Array) -> void:
 	if player_inventory.size() == 0:
 		return
 
-	prints("sizes",itemGrid.get_child_count(),player_inventory.size())
 
 	for item in player_inventory:
 		var new_item_icon :TextureRect= item_icon_scene.instantiate()
 		# we just store the id of the item in the icon, not the entire resource
 		new_item_icon.id = item.id
-		new_item_icon.texture = load("res://assets/item_icons/" +ItemDb.ITEMS[item.id]['icon'])
+		new_item_icon.texture = load("res://assets/item_icons/%s" %ItemDb.ITEMS[item.id]['icon'])
 		itemGrid.add_child(new_item_icon)
 
 	# math to find row and col count based on number of children
-	for child in itemGrid.get_children():
-		print(child.id)
-	print(itemGrid.get_children())
-	print(itemGrid.get_child_count())
 	item_grid_bounds.x = min(itemGrid.get_child_count(),itemGrid.columns)
 	item_grid_bounds.y = ceili(float(itemGrid.get_child_count())/float(itemGrid.columns))
-	print(item_grid_bounds)
 
 	_update_labels(itemGrid.get_child(0).id)
 
