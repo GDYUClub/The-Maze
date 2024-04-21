@@ -27,12 +27,12 @@ func give_item(id:String) -> void:
 	new_item.icon = load("res://assets/item_icons/" + icon_name)
 	new_item.description = ITEMS[id]["description"]
 
-    # add resource to player inventory
-    var current_scene = _get_current_scene()
-    var player:Player = current_scene.get_node("Player")
-    #if player.has_item(new_item) == false or new_item["unique"] == false:
-    player.inventory.append(new_item)
-    print('player now has item: ', new_item.title)
+	# add resource to player inventory
+	var current_scene = _get_current_scene()
+	var player:Player = current_scene.get_node("Player")
+	#if player.has_item(new_item) == false or new_item["unique"] == false:
+	player.inventory.append(new_item)
+	print('player now has item: ', new_item.title)
 
 
 func _get_current_scene():
