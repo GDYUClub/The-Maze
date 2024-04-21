@@ -26,6 +26,7 @@ func on_teleport_entered() -> void:
 	match current_map_id:
 		77:
 			print("can't teleport")
+			return
 		11:
 			next_map_id = 2
 		10:
@@ -42,6 +43,7 @@ func on_teleport_entered() -> void:
 
 	if potential_tile != null:
 			print("can't teleport")
+			return
 
 	# go to new map
 	current_map.queue_free()
