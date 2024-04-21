@@ -19,3 +19,4 @@ position = Vector2(144, 48)
 
 [node name="stairs" parent="." instance=ExtResource("3_wvxh7")]
 position = Vector2(192, 80)
+toward_room_id = 3

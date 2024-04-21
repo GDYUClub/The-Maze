@@ -13,7 +13,6 @@ func _ready() -> void:
 	connect_to_player()
 	connect_to_main()
 
-
 func connect_to_player() -> void:
 	var player := get_parent()
 	player.moved.connect(player_moved)
@@ -46,7 +45,11 @@ func check_move_codes():
 	if recent_moves == winning_move_code:
 		code_entered()
 	if recent_moves.slice(1,-1) == teleport_move_code:
+<<<<<<< HEAD
 		teleport_entered.emit()
+=======
+		teleport_requested.emit()
+>>>>>>> 19aa049 (Teleportation And Preparing for next levels)
 		pass
 	pass
 
