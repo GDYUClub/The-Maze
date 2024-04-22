@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv5xm6ru2dkxf"]
+[gd_scene load_steps=9 format=3 uid="uid://cv5xm6ru2dkxf"]
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_8hq0w"]
 [ext_resource type="Texture2D" uid="uid://b3w5cmqr6fbcw" path="res://assets/monochrome-transparent_packed.png" id="1_kghfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/main/ui.gd" id="4_o4xue"]
 [ext_resource type="Texture2D" uid="uid://5kstmna3yb6t" path="res://assets/white.png" id="6_8laen"]
 [ext_resource type="FontFile" uid="uid://ddjw625xpmwtc" path="res://assets/Not Jam UI Condensed 16.ttf" id="6_sa7lc"]
+[ext_resource type="Script" path="res://src/main/hints.gd" id="8_wxbpy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8hq0w")
@@ -93,3 +94,6 @@ text = "B00"
 
 [node name="Player2" parent="." instance=ExtResource("2_ekt33")]
 position = Vector2(130, 47)
+
+[node name="Hints" type="Node2D" parent="."]
+script = ExtResource("8_wxbpy")
