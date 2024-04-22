@@ -63,3 +63,33 @@ func _end_cutscene() -> void:
 	in_cutscene = false
 	await get_tree().create_timer(0.01).timeout # 10ms buffer hack to prevent input collision from text advancing and player input, could also solve by checking UI input in player _input event?
 	player.is_actionable = true
+
+
+# ---
+# Copy of hint code.
+# I'll rearrange this later. --nd
+class Hint:
+	var contents: String
+	var is_unlocked: bool
+	func _init(contents: String) -> void:
+		self.contents = contents
+		self.is_unlocked = false
+	
+	func unlock() -> void:
+		self.is_unlocked = true
+
+# all hints in game in a nested array
+var hints = [[], []]
+
+
+# level number should be given directly; function handles offsetting for 0-indexing
+func add_hint(level: int, content: String) -> void:
+	hints[level - 1].append(Hint.new(content))
+
+func all_level_hints_unlocked(level) -> bool:
+	var hints_to_check = hints[level - 1].duplicate()
+	hints_to_check.reduce(func(hint): return !hint.is_unlocked)
+	if hints_to_check.is_empty():
+		return true
+	else:
+		return false
