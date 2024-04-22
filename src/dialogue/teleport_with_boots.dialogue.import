@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dbsca1ks2w67v"
+path="res://.godot/imported/teleport_with_boots.dialogue-d8a792679a0cb083f0ab94ce32ec7880.tres"
+
+[deps]
+
+source_file="res://src/dialogue/teleport_with_boots.dialogue"
+dest_files=["res://.godot/imported/teleport_with_boots.dialogue-d8a792679a0cb083f0ab94ce32ec7880.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://y1k7l5tesn0o"
+path="res://.godot/imported/escape_at_9.dialogue-80dee57f48729f2763fe587944c2cea7.tres"
+
+[deps]
+
+source_file="res://src/dialogue/escape_at_9.dialogue"
+dest_files=["res://.godot/imported/escape_at_9.dialogue-80dee57f48729f2763fe587944c2cea7.tres"]
+
+[params]
+
+defaults=true

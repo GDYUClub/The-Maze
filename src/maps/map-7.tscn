@@ -19,4 +19,4 @@ position = Vector2(80, 64)
 
 [node name="stairs" parent="." instance=ExtResource("3_3nspj")]
 position = Vector2(192, 48)
-toward_room_id = 3
+toward_room_id = 8

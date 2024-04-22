@@ -77,7 +77,7 @@ menu={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://src/dialogue/main.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/dialogue/main.dialogue", "res://src/dialogue/to_find_chest.dialogue", "res://src/dialogue/teleport_with_boots.dialogue", "res://src/dialogue/escape_at_9.dialogue")
 
 [layer_names]
 

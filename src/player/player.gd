@@ -56,6 +56,10 @@ func _move(_input_dir:Vector2) -> void:
 	# clear old raycast collison then get new one
 	raycast.force_raycast_update()
 	var next_tile: Object = raycast.get_collider()
+	
+	if next_tile != null and next_tile.is_in_group('npc'):
+		next_tile.npc_interaction()
+		pass
 
 	if next_tile == null or next_tile.is_in_group('walkable'):
 		position += _input_dir * TILE_SIZE
