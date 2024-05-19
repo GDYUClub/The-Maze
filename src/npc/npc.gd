@@ -20,7 +20,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func npc_interaction() -> void:
-	print("MOOOOOOOOOOO")
 	var balloon: Node = dialogBox.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(dialog_resource,dialog_start)

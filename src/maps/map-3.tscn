@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwxdotd7hh5tb"]
+[gd_scene load_steps=5 format=3 uid="uid://cwxdotd7hh5tb"]
 
 [ext_resource type="Script" path="res://src/maps/map.gd" id="1_kwl2f"]
 [ext_resource type="TileSet" uid="uid://dmwbt07hsdtyl" path="res://src/resources/map_tileset.tres" id="1_xfyi1"]
 [ext_resource type="PackedScene" uid="uid://cmdlpc0uddsm2" path="res://src/scene-tiles/stairs/stairs.tscn" id="3_vucpd"]
+[ext_resource type="PackedScene" uid="uid://dogxscw6bnmy6" path="res://src/npc/npc.tscn" id="4_ln2xe"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_kwl2f")
@@ -19,8 +20,7 @@ position = Vector2(80, 64)
 
 [node name="stairs" parent="." instance=ExtResource("3_vucpd")]
 position = Vector2(160, 96)
-toward_room_id = 4
+toward_room_id = 5
 
-[node name="stairs2" parent="." instance=ExtResource("3_vucpd")]
+[node name="NPC" parent="." instance=ExtResource("4_ln2xe")]
 position = Vector2(192, 48)
-toward_room_id = 77

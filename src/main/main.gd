@@ -13,11 +13,6 @@ var map_room_id_dict: Dictionary = { #Not perfect but works for time constraint
 	4 : preload('res://src/maps/map-4.tscn'),
 	5: preload('res://src/maps/map-5.tscn'),
 	6: preload('res://src/maps/map-6.tscn'),
-	7 : preload('res://src/maps/map-7.tscn'),
-	8: preload('res://src/maps/map-8.tscn'),
-	9: preload('res://src/maps/map-9.tscn'),
-	10 : preload('res://src/maps/map-10.tscn'),
-	11: preload('res://src/maps/map-11.tscn'),
 	77: preload('res://src/maps/map-77.tscn')
 }
 
@@ -50,10 +45,10 @@ func on_teleport_requested() -> bool:
 	match current_map_id:
 		77:
 			return false
-		11:
-			next_map_id = 2
-		10:
+		5:
 			next_map_id = 1
+		6:
+			next_map_id = 2
 		_:
 			next_map_id = current_map_id + 2
 	var nextMap:Node2D = map_room_id_dict[next_map_id].instantiate()
