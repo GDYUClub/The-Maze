@@ -1,13 +1,12 @@
-~ this_is_a_node_title
-
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ start
+Bee: down,left,left,down,down,right!!!
+Bee: This games been rigged.
+Bee Thing: Code's trapped us here
+Beet Thing: But now you have skulldev's boots
+Beet Thing: Teleport to the dev room...
+Beet Thing: Input down,left,left,down,down,right..
+Best Thing: dev room.. boot code..
+Best Thing: Reboot this place
+Best Friend: You can do it
 
 => END

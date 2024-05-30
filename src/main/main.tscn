@@ -26,6 +26,7 @@ offset_right = 256.0
 offset_bottom = 16.0
 
 [node name="Bar" type="TextureRect" parent="HUD"]
+visible = false
 layout_mode = 2
 offset_left = 1.0
 offset_right = 257.0
@@ -33,6 +34,7 @@ offset_bottom = 17.0
 texture = ExtResource("6_8laen")
 
 [node name="EquippedWrapper" type="TextureRect" parent="HUD"]
+visible = false
 modulate = Color(0.301961, 0.301961, 0.301961, 1)
 layout_mode = 0
 offset_left = 144.0
@@ -40,6 +42,7 @@ offset_right = 144.0
 texture = ExtResource("8_h4ayj")
 
 [node name="EquippedItem" type="TextureRect" parent="HUD"]
+visible = false
 modulate = Color(0.301961, 0.301961, 0.301961, 1)
 layout_mode = 0
 offset_left = 160.0
@@ -48,6 +51,7 @@ offset_bottom = 16.0
 texture = ExtResource("6_qs3pd")
 
 [node name="HPLabel" type="Label" parent="HUD"]
+visible = false
 layout_mode = 2
 offset_left = 16.0
 offset_right = 54.0
@@ -59,6 +63,7 @@ theme_override_font_sizes/font_size = 16
 text = "HP: 3/3"
 
 [node name="Gold Label" type="Label" parent="HUD"]
+visible = false
 layout_mode = 2
 offset_left = 192.0
 offset_right = 206.0
@@ -68,16 +73,24 @@ theme_override_fonts/font = ExtResource("6_sa7lc")
 theme_override_font_sizes/font_size = 16
 text = "0g"
 
-[node name="FloorLabel" type="Label" parent="HUD"]
-layout_mode = 2
-offset_left = 224.0
-offset_right = 257.0
-offset_bottom = 16.0
-theme = ExtResource("8_xwmxw")
-theme_override_colors/font_color = Color(0.301961, 0.301961, 0.301961, 1)
-theme_override_fonts/font = ExtResource("6_sa7lc")
-theme_override_font_sizes/font_size = 16
-text = "B00"
-
 [node name="MenuLayer" parent="." instance=ExtResource("10_ynrm5")]
 visible = false
+
+[node name="FloorPopup" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="FloorPopup"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FloorLabel" type="Label" parent="FloorPopup"]
+offset_left = 14.0
+offset_top = -4.0
+offset_right = 58.0
+offset_bottom = 21.0
+scale = Vector2(3, 3)
+theme = ExtResource("8_xwmxw")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_sa7lc")
+theme_override_font_sizes/font_size = 16
+text = "1"

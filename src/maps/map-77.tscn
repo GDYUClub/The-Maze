@@ -24,5 +24,4 @@ toward_room_id = 1
 
 [node name="NPC" parent="." instance=ExtResource("4_e4j1d")]
 position = Vector2(160, 64)
-is_cow = false
 dialog_resource = ExtResource("5_usv6c")

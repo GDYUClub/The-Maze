@@ -16,14 +16,23 @@ var map_room_id_dict: Dictionary = { #Not perfect but works for time constraint
 	77: preload('res://src/maps/map-77.tscn')
 }
 
+
+###Add the credits inventory
+
+var floor_popup_disappearing = false
+
 var shuffled_maps:Array = []
 
 var current_map_id = 1
+var global_floor_tween: Tween
+
 
 func _ready() -> void:
 	#ui.text_rendered.connect(_start_cutscene)
 	#ui.text_removed.connect(_end_cutscene)
 	player.walked_into_stairs.connect(next_map)
+	global_floor_tween = get_tree().create_tween()
+	give_all_items()
 	pass
 
 func next_map(given_map_id: int) -> void:
@@ -34,10 +43,26 @@ func next_map(given_map_id: int) -> void:
 	current_map.queue_free()
 	add_child(nextMap)
 	current_map = nextMap
-
-	#move the player to the spawn point
 	var playerSpawnMarker:Marker2D = nextMap.get_node('PlayerSpawn')
 	player.position = playerSpawnMarker.position
+	flash_floor_pickup()
+
+func flash_floor_pickup():
+			global_floor_tween.kill()
+			$FloorPopup.modulate.a = 1
+			global_floor_tween =  get_tree().create_tween()
+			global_floor_tween.connect("finished",func(): make_floor_popup_disappear(),CONNECT_ONE_SHOT)
+			global_floor_tween.tween_property($FloorPopup, "modulate:a", 0, 5)
+			global_floor_tween.play()
+			$FloorPopup/FloorLabel.text = str(current_map_id) ###NXT fix this and make it tween
+			#move the player to the spawn point
+			pass
+	
+
+func make_floor_popup_disappear():
+	$FloorPopup.modulate.a = 0
+
+	
 	pass
 
 func on_teleport_requested() -> bool:
@@ -52,6 +77,7 @@ func on_teleport_requested() -> bool:
 		_:
 			next_map_id = current_map_id + 2
 	var nextMap:Node2D = map_room_id_dict[next_map_id].instantiate()
+	current_map_id = next_map_id
 	add_child(nextMap)
 	nextMap.visible = false
 	#Check if at tile or not
@@ -96,6 +122,25 @@ func _toggle_menu(inventory) -> void:
 	menuLayer.visible = true
 	menuLayer._load_items(inventory)
 	pass
+
+func on_win_requested():
+	if current_map_id == 4:
+		print("YOU WONWUYIOWNWUIWNBWVGHUJKMNBGHUJMNBVFGHJNBVFGHJNBVGHNBVGHNBVFGUJMNB CFGYUIKMNBCFGJMNBVFGHJMNBVFGHJNBVGHJ")
+		get_tree().change_scene_to_file("res://src/main/win_scene.tscn")
+	pass
+
+func give_all_items():
+	ItemDb.give_item("1")
+	ItemDb.give_item("2")
+	ItemDb.give_item("3")
+	ItemDb.give_item("4")
+	ItemDb.give_item("5")
+	ItemDb.give_item("6")
+	ItemDb.give_item("7")
+	ItemDb.give_item("8")
+	ItemDb.give_item("9")
+	ItemDb.give_item("10")
+	ItemDb.give_item("11")
 
 #unused, will remove later
 #func _start_cutscene() -> void:
