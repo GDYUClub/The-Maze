@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy6ft3gis6xo1"]
+[gd_scene load_steps=6 format=3 uid="uid://cy6ft3gis6xo1"]
 
 [ext_resource type="Script" path="res://src/maps/map.gd" id="1_1iq0s"]
 [ext_resource type="TileSet" uid="uid://dmwbt07hsdtyl" path="res://src/resources/map_tileset.tres" id="2_bw06a"]
 [ext_resource type="PackedScene" uid="uid://cmdlpc0uddsm2" path="res://src/scene-tiles/stairs/stairs.tscn" id="3_oj5pp"]
 [ext_resource type="PackedScene" uid="uid://cojb8qcua33fo" path="res://src/scene-tiles/chest/chest.tscn" id="4_wwsf8"]
+[ext_resource type="Resource" uid="uid://dk6o0apnbyk0f" path="res://src/dialogue/you_got_boots.dialogue" id="5_6x115"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_1iq0s")
@@ -22,5 +23,6 @@ position = Vector2(80, 64)
 position = Vector2(112, 96)
 toward_room_id = 6
 
-[node name="Chest" parent="." instance=ExtResource("4_wwsf8")]
+[node name="Chest" parent="." groups=["Chest"] instance=ExtResource("4_wwsf8")]
 position = Vector2(176, 48)
+dialog_resource = ExtResource("5_6x115")

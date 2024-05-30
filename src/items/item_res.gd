@@ -1,10 +1,10 @@
 class_name Item
 extends Resource
 
-var icon:Texture
-var id:String
-var title:String
-var description:String
+@export var icon:Texture
+@export var id:String
+@export var title:String
+@export var description:String
 var in_inventory = false
 
 func given_to_player():

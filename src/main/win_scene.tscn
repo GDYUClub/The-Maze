@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://2pitbg3oe6kj"]
+
+[ext_resource type="Theme" uid="uid://eyq5i2mlpkwn" path="res://assets/ui_themes/new_theme.tres" id="1_snbyq"]
+
+[node name="WinScene" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 223.0
+offset_bottom = 118.0
+theme = ExtResource("1_snbyq")
+text = "Huh maybe this was good.
+
+This was the Maze
+
+Click \"c\" in the Maze for a treat"

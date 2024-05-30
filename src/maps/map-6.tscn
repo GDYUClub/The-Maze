@@ -17,10 +17,6 @@ layer_1/tile_data = PackedInt32Array(196615, 3, 65536, 393226, 3, 131072)
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(80, 64)
 
-[node name="stairs" parent="." instance=ExtResource("3_qk1jn")]
-position = Vector2(112, 112)
-toward_room_id = 7
-
 [node name="stairs2" parent="." instance=ExtResource("3_qk1jn")]
 position = Vector2(192, 48)
-toward_room_id = 8
+toward_room_id = 1

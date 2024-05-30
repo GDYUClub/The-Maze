@@ -7,6 +7,10 @@ extends Area2D
 signal walked_into_stairs(toward_which_room_id)
 signal moved(dir)
 
+const dialogBox = preload("res://assets/dialogue_boxes/balloon.tscn")
+@export var dialog_resource: DialogueResource
+@export var dialog_start: String = "start"
+
 const TILE_SIZE := 16
 var is_actionable:= true
 
@@ -56,6 +60,17 @@ func _move(_input_dir:Vector2) -> void:
 	# clear old raycast collison then get new one
 	raycast.force_raycast_update()
 	var next_tile: Object = raycast.get_collider()
+	
+	if next_tile != null and next_tile.is_in_group('npc'):
+		next_tile.npc_interaction()
+		pass
+	if next_tile != null and next_tile.is_in_group('chest'):
+		if !has_boots:
+			give_boots()
+		var balloon: Node = dialogBox.instantiate()
+		self.add_child(balloon)
+		balloon.start(next_tile.dialog_resource,dialog_start)
+		pass
 
 	if next_tile == null or next_tile.is_in_group('walkable'):
 		position += _input_dir * TILE_SIZE
@@ -81,7 +96,6 @@ func _interact() -> void:
 func give_boots():
 	var boots = boots_packed_scene.instantiate()
 	add_child(boots)
-
 	has_boots = true
 
 func has_item(id:String) -> bool:

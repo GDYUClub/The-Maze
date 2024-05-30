@@ -15,8 +15,75 @@ const ITEMS = {
 		"icon":"pendant.png",
 		"description":"You (also) shouldn't have this item.",
 		"unique":true,
+	},
+	"1":{
+		"title":"First leap",
+		"icon":"pendant.png",
+		"description":">September 23 2023 I ask for mechanic ideas after presentations",
+		"unique":true,
+	},
+	"2":{
+		"title":"Serious",
+		"icon":"pendant.png",
+		"description":"No more ideas or potential. Just us coordinating for ourselves",
+		"unique":true,
+	},
+	"3":{
+		"title":"Codemaster",
+		"icon":"pendant.png",
+		"description":"Thank you Jayden for coding this game into existance",
+		"unique":true,
+	},
+	"4":{
+		"title":"GDYU",
+		"icon":"pendant.png",
+		"description":"Shoutout to GDYU",
+		"unique":true,
+	},
+	"5":{
+		"title":"Ideas",
+		"icon":"pendant.png",
+		"description":"Thank you to NDJia, Zohair, Hiking and FaithfulPurpleCap ",
+		"unique":true,
+	},
+	"6":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
+	},
+	"7":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
+	},
+	"8":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
+	},
+	"9":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
+	},
+	"10":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
+	},
+	"11":{
+		"title":"Bruh",
+		"icon":"pendant.png",
+		"description":"YWhaaaaa",
+		"unique":true,
 	}
 }
+###ANXT dd all the credit items here
 
 # item constructor
 func give_item(id:String) -> void:

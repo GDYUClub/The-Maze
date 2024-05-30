@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dkxxga848s7wv"
+path="res://.godot/imported/hidden_sequence.dialogue-8598504f243ff30c9279a5724c0c8721.tres"
+
+[deps]
+
+source_file="res://src/dialogue/hidden_sequence.dialogue"
+dest_files=["res://.godot/imported/hidden_sequence.dialogue-8598504f243ff30c9279a5724c0c8721.tres"]
+
+[params]
+
+defaults=true
